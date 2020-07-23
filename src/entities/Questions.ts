@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn, BaseEntity} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, BaseEntity ,JoinColumn, OneToMany} from "typeorm";
+import {Answers} from './Answers'
 
 @Entity("single-question")
 export class Questions extends BaseEntity {
@@ -13,5 +14,10 @@ export class Questions extends BaseEntity {
                 length:100
         })
         difficulty!: string;
+
+        @OneToMany(type => Answers, answers => answers.question) // note: we will create author property in the Photo class below
+        
+       answers!: Answers[];
     
+
 }

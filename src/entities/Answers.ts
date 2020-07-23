@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn, BaseEntity,PrimaryColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, JoinColumn, JoinTable} from "typeorm";
+import {Questions} from './Questions'
 
 @Entity("all_answers")
 export class Answers extends BaseEntity {
@@ -17,6 +18,11 @@ export class Answers extends BaseEntity {
 
         @Column()
         fourthAnswer!: string;
-        @Column()
-        question!: string;
+
+    
+        @ManyToOne(type => Questions, question => question.id)
+        @JoinColumn()
+ question!: Questions;
+        
 }
+
