@@ -1,9 +1,56 @@
-import { createConnection, getRepository } from 'typeorm';
+import { createConnection, getRepository ,getManager} from 'typeorm';
 import "reflect-metadata";
-import { Questions } from './entities/Questions';
+
 
 export const dbConnect = createConnection();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * import { Questions } from './entities/Questions';
+import { Answers } from './entities/Answers';
+ * .then( async connection => {
+
+    let answer = new Answers();
+    const questionRepo =  connection.getRepository(Questions);
+     const question1 = await questionRepo.findOne({where:{id:1} , relations:['answers']});
+     
+    
+    answer.firstAnswer = "C++";
+    answer.secondAnswer = "java";
+    answer.thirdAnswer = "javascript";
+    answer.fourthAnswer = "ruby";
+    
+    question1?.answers.push(answer);
+
+   // console.log(question1);
+
+    await questionRepo.save(question1!);
+           
+
+}).catch(error => console.log(error));
+
+
+ */
 
 
 /*

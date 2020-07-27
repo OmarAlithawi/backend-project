@@ -20,9 +20,9 @@ export class Answers extends BaseEntity {
         fourthAnswer!: string;
 
     
-        @ManyToOne(type => Questions, question => question.id)
-        @JoinColumn()
- question!: Questions;
+        @ManyToOne(type => Questions, question => question.answers)
+      
+        question!: Questions;
         
 }
 
